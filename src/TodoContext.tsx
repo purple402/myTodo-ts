@@ -4,7 +4,6 @@ import React, {
   createContext,
   useContext,
   useRef,
-  RefObject,
 } from 'react';
 
 type Todo = {
@@ -62,7 +61,7 @@ function todoReducer(state: State, action: Action): State {
 
 const TodoStateContext = createContext<State | null>(null);
 const TodoDispatchContext = createContext<DispatchType | null>(null);
-const TodoNextIdContext = createContext<RefObject<number> | null>(null);
+const TodoNextIdContext = createContext<React.MutableRefObject<number> | null>(null);
 
 export function TodoProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(todoReducer, initialTodos);
