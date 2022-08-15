@@ -6,10 +6,12 @@ type Todo = {
   done: boolean;
 };
 
+const URL = "http://localhost:3001/todos"
+
 export const createTodo = (todo: Todo) =>
-  axios.post('http://localhost:3001/todos', todo);
+  axios.post(URL, todo);
 
 export async function getTodos(): Promise<Todo[]> {
-  const response = await axios.get('http://localhost:3001/todos');
+  const response = await axios.get(URL);
   return response.data;
 }
