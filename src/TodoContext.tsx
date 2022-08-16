@@ -5,12 +5,7 @@ import React, {
   useContext,
   useRef,
 } from 'react';
-
-type Todo = {
-  id: number;
-  text: string;
-  done: boolean;
-};
+import { Todo } from './types/todos';
 
 type Action =
   | { type: 'CREATE'; todo: Todo }
