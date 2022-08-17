@@ -9,3 +9,8 @@ export async function getTodos(): Promise<Todo[]> {
   const response = await axios.get(URL);
   return response.data;
 }
+
+export const deleteTodo = (todoId: number) => {
+  axios.delete(`${URL}/${todoId}`);
+};
+
