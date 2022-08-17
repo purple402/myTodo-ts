@@ -14,3 +14,10 @@ export const deleteTodo = (todoId: number) => {
   axios.delete(`${URL}/${todoId}`);
 };
 
+export async function toggleTodo(todoId: number) {
+  const selectedTodo = await axios.get(`${URL}/${todoId}`);
+  // console.log(selectedTodo.data.done)
+  axios.patch(`${URL}/${todoId}`, {
+    done: !selectedTodo.data.done,
+  });
+}
